@@ -13,10 +13,10 @@ This study investigates the efficacy of standard Recurrent Neural Networks (RNNs
 
 The Char-RNN model, as discussed by Karpathy in "The Unreasonable Effectiveness of Recurrent Neural Networks" [1], presents an effective approach to the language model by operating at the character level to generate coherent and contextually relevant text. Unlike traditional word-level models, Char-RNN processes text at the granularity of individual characters, which allows it to capture more fine-grained patterns and nuances and generate text with a high degree of flexibility.  Char-RNN is implemented using a recurrent neural network (RNN), a class of artificial neural networks for modeling sequential data. Whereas standard neural networks assume fixed length input and output, RNN processes input sequences of variable lengths by maintaining a hidden state that retains information from previous time steps. This recurrent nature gives RNNs the ability to capture temporal dependencies and long-range contextual information, making them suitable for tasks involving sequential data like language modeling. Figure 1 shows examples of how RNN operates over sequences of vectors in the input, output, or both. 
 
-<iframe src="assets/diags.png" style="width: 100%; height: 100%; border: none;"></iframe>
+![diags](/assets/diags.png)
 Figure 1. Sequences of Vectors [1]
 
-<iframe src="assets/rnn.png" style="width: 100%; height: 100%; border: none;"></iframe>
+![rnn](/assets/rnn.png)
 Figure 2. A Standard RNN 
 
 The structure of a standard recurrent neural network can be represented through mathematical equations. On the forward pass, the hidden state $h^{(t)}$ at each step  $t$ is calculated using the following equation:
@@ -33,7 +33,7 @@ In this equation, $W^{yh}$ denotes the weight matrix connecting the hidden state
 
 However, despite their efficacy, traditional RNNs suffer from certain limitations such as difficulty in learning and retaining information over sequences of considerable length where information from distant time steps becomes effectively inaccessible. This issue, commonly referred to as the "vanishing gradient" problem, arises due to the diminishing impact of gradients during backpropagation, which causes gradients to diminish exponentially over time, hindering the network's ability to propagate information and learn long-term dependencies. To address these challenges, Long Short Term Memory (LSTM) networks are introduced. LSTM networks offer a solution to the vanishing gradient problem by incorporating specialized memory cells that are capable of retaining information over multiple time steps. Through a system of gated units that enables them to store and retrieve information over multiple time steps, LSTM networks selectively update and forget information over extended time horizons, facilitating more robust and efficient learning of long-range dependencies.
 
-<iframe src="assets/lstm.png" style="width: 100%; height: 100%; border: none;"></iframe>
+![lstm](/assets/lstm.png)
 Figure 3. A LSTM (Full Network) 
 
 Although the LSTM network stands out for its ability to capture long-term dependencies in sequential data, the effectiveness of LSTMs compared to standard RNNs in tasks like text generation can be further investigated. This study aims to examine and compare the performance of standard RNN models with LSTM models within the context of the Char-RNN framework. Experiments will be conducted to assess the effectiveness of both architectures in terms of learning efficiency and text generation quality. By comparing the strengths and weaknesses of each model, this study aims to contribute to a deeper understanding of their applicability in language modeling tasks. 
@@ -51,16 +51,17 @@ The experiment aimed to compare the performance of standard Recurrent Neural Net
 
 The null hypothesis is that there would be no significant difference between the training loss curves for the RNN model and the LSTM model. However, based on the known challenges of vanishing gradients in RNNs and the more sophisticated design of LSTM networks, it was hypothesized that the LSTM model would outperform the standard RNN model in terms of learning efficiency and quality of generated text.
 
-|   index |   Iterations |   Standard RNN |   LSTM |
-|--------:|-------------:|---------------:|-------:|
-|       0 |            1 |          3.015 |  3.077 |
-|       1 |         5000 |          1.786 |  1.586 |
-|       2 |        10000 |          1.708 |  1     |
-|       3 |        15000 |          1.732 |  1.481 |
-|       4 |        20000 |          1.692 |  1.396 |
+|   Iterations |   Standard RNN |   LSTM |
+|-------------:|---------------:|-------:|
+|            1 |          3.015 |  3.077 |
+|         5000 |          1.786 |  1.586 |
+|        10000 |          1.708 |  1     |
+|        15000 |          1.732 |  1.481 |
+|        20000 |          1.692 |  1.396 |
+
 Table 1. Loss averaged across 3 trials over 20,000 training iterations for RNN and LSTM models
 
-<iframe src="assets/plot.png" style="width: 100%; height: 100%; border: none;"></iframe>
+![plot](/assets/plot.png)
 Figure 4. Average loss across 3 trials over 20,000 training iterations for RNN and LSTM models (number of iterations shown in hundreds)
 
 The experiment's results revealed a significant difference in the training loss curves between the RNN and LSTM models. The LSTM model exhibited a faster rate of decrease in average loss compared to the RNN model. Additionally, qualitative analysis of the generated text demonstrated that the LSTM model produced text with fewer errors and a more coherent structure compared to the RNN model. These findings support the hypothesis that the LSTM model outperforms the standard RNN model in terms of learning efficiency and text generation quality.
