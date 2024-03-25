@@ -1,4 +1,8 @@
-remote_theme: pages-themes/cayman@v0.2.0
+theme: minima
 plugins:
-- jekyll-remote-theme
-- jekyll-latex
+  - jekyll-titles-from-headings
+  - jekyll-latex
+titles_from_headings:
+  enabled:     true
+  strip_title: true
+  collections: true
