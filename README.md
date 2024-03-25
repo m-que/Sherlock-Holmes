@@ -62,6 +62,7 @@ The null hypothesis is that there would be no significant difference between the
 Table 1. Loss averaged across 3 trials over 20,000 training iterations for RNN and LSTM models
 
 ![plot](/assets/plot.png)
+
 Figure 4. Average loss across 3 trials over 20,000 training iterations for RNN and LSTM models (number of iterations shown in hundreds)
 
 The experiment's results revealed a significant difference in the training loss curves between the RNN and LSTM models. The LSTM model exhibited a faster rate of decrease in average loss compared to the RNN model. Additionally, qualitative analysis of the generated text demonstrated that the LSTM model produced text with fewer errors and a more coherent structure compared to the RNN model. These findings support the hypothesis that the LSTM model outperforms the standard RNN model in terms of learning efficiency and text generation quality.
